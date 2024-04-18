@@ -112,5 +112,27 @@ namespace Funcionario
                 return false ;
             }
         }
+
+        public bool deletarFuncionario()
+        {
+            try
+            {
+                MySqlConnection MySqlConexaoBanco = new MySqlConnection(ConexaoBanco.bancoServidor);
+                MySqlConexaoBanco.Open();
+
+                string delete = $"delete from funcionarios where id = '{Id}';";
+                MySqlCommand comandoSql = MySqlConexaoBanco.CreateCommand();
+                comandoSql.CommandText = delete;
+
+                comandoSql.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro no banco de dados - método deletarFuncionario()" + ex.Message);
+                return false;
+            }
+
+        }
     }
 }

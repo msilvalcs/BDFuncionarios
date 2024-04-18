@@ -42,6 +42,7 @@
             lblId = new Label();
             btnLimpar = new Button();
             btnAtualizar = new Button();
+            btnDelete = new Button();
             SuspendLayout();
             // 
             // label1
@@ -124,7 +125,7 @@
             // 
             btnCadastrar.FlatStyle = FlatStyle.Flat;
             btnCadastrar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCadastrar.Location = new Point(27, 276);
+            btnCadastrar.Location = new Point(13, 276);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(122, 39);
             btnCadastrar.TabIndex = 5;
@@ -136,7 +137,7 @@
             // 
             btnPesquisar.FlatStyle = FlatStyle.Flat;
             btnPesquisar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPesquisar.Location = new Point(155, 276);
+            btnPesquisar.Location = new Point(141, 276);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(122, 39);
             btnPesquisar.TabIndex = 6;
@@ -177,7 +178,7 @@
             // 
             btnAtualizar.FlatStyle = FlatStyle.Flat;
             btnAtualizar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAtualizar.Location = new Point(283, 276);
+            btnAtualizar.Location = new Point(269, 276);
             btnAtualizar.Name = "btnAtualizar";
             btnAtualizar.Size = new Size(122, 39);
             btnAtualizar.TabIndex = 10;
@@ -185,11 +186,24 @@
             btnAtualizar.UseVisualStyleBackColor = true;
             btnAtualizar.Click += btnAtualizar_Click;
             // 
+            // btnDelete
+            // 
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDelete.Location = new Point(397, 276);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(122, 39);
+            btnDelete.TabIndex = 11;
+            btnDelete.Text = "Deletar";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(533, 376);
+            Controls.Add(btnDelete);
             Controls.Add(btnAtualizar);
             Controls.Add(btnLimpar);
             Controls.Add(lblId);
@@ -227,5 +241,6 @@
         private Label lblId;
         private Button btnLimpar;
         private Button btnAtualizar;
+        private Button btnDelete;
     }
 }

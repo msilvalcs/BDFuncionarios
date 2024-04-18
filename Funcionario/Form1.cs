@@ -127,14 +127,14 @@ namespace Funcionario
         {
             try
             {
-                if(!txtCpf.Text.Equals("") && !txtEmail.Text.Equals("") && !txtEndereco.Text.Equals("") && !txtNome.Text.Equals(""))
+                if (!txtCpf.Text.Equals("") && !txtEmail.Text.Equals("") && !txtEndereco.Text.Equals("") && !txtNome.Text.Equals(""))
                 {
                     cadastroFuncionarios cadFuncionarios = new cadastroFuncionarios();
                     cadFuncionarios.Id = int.Parse(lblId.Text);
                     cadFuncionarios.Email = txtEmail.Text;
                     cadFuncionarios.Endereco = txtEndereco.Text;
-                    
-                    if(cadFuncionarios.atualizarFuncionario())
+
+                    if (cadFuncionarios.atualizarFuncionario())
                     {
                         MessageBox.Show("Os dados do funcionários foram atualizados.");
                     }
@@ -157,6 +157,50 @@ namespace Funcionario
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao atualizar dados do funcionário: " + ex.Message);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!txtCpf.Text.Equals("") && !txtNome.Text.Equals("") && !txtEndereco.Text.Equals("") && !txtEmail.Text.Equals(""))
+                {
+                    cadastroFuncionarios cadFuncionario = new cadastroFuncionarios();
+                    cadFuncionario.Id = int.Parse(lblId.Text);
+
+                    if(cadFuncionario.deletarFuncionario())
+                    {
+                        MessageBox.Show("Usuário excluido com sucesso");
+                        txtCpf.Clear();
+                        txtNome.Clear();
+                        txtEndereco.Clear();
+                        txtEmail.Clear();
+                        lblId.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possivel excluir funcionário.");
+                        txtCpf.Clear();
+                        txtNome.Clear();
+                        txtEndereco.Clear();
+                        txtEmail.Clear();
+                        lblId.Text = "";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Favor pesquisar qual funcionário deseja excluir.");
+                    txtCpf.Clear();
+                    txtNome.Clear();
+                    txtEndereco.Clear();
+                    txtEmail.Clear();
+                    lblId.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir funcionário." + ex.Message);
             }
         }
     }
