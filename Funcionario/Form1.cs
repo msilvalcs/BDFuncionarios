@@ -122,5 +122,42 @@ namespace Funcionario
             txtNome.Focus();
             lblId.Text = "";
         }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(!txtCpf.Text.Equals("") && !txtEmail.Text.Equals("") && !txtEndereco.Text.Equals("") && !txtNome.Text.Equals(""))
+                {
+                    cadastroFuncionarios cadFuncionarios = new cadastroFuncionarios();
+                    cadFuncionarios.Id = int.Parse(lblId.Text);
+                    cadFuncionarios.Email = txtEmail.Text;
+                    cadFuncionarios.Endereco = txtEndereco.Text;
+                    
+                    if(cadFuncionarios.atualizarFuncionario())
+                    {
+                        MessageBox.Show("Os dados do funcionários foram atualizados.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possivel atualizar os dados do funcionário.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Favor localizar o funcionário que deseja atualizar informações");
+                    txtCpf.Clear();
+                    txtNome.Clear();
+                    txtEmail.Clear();
+                    txtEndereco.Clear();
+                    lblId.Text = "";
+                    txtCpf.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar dados do funcionário: " + ex.Message);
+            }
+        }
     }
 }

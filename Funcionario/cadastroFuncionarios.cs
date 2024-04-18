@@ -91,5 +91,26 @@ namespace Funcionario
                 return null;
             }
         }
+
+        public bool atualizarFuncionario()
+        {
+            try
+            {
+                MySqlConnection MySqlConexaoBanco = new MySqlConnection(ConexaoBanco.bancoServidor);
+                MySqlConexaoBanco.Open();
+
+                string update = $"update funcionarios set email = '{Email}', endereco = '{Endereco}' where id = '{Id}';";
+                MySqlCommand comandoSql = MySqlConexaoBanco.CreateCommand();
+                comandoSql.CommandText = update;
+
+                comandoSql.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro no banco de dados - método atualizarFuncionarios" + ex.Message);
+                return false ;
+            }
+        }
     }
 }

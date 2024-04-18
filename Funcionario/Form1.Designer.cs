@@ -41,6 +41,7 @@
             label5 = new Label();
             lblId = new Label();
             btnLimpar = new Button();
+            btnAtualizar = new Button();
             SuspendLayout();
             // 
             // label1
@@ -172,11 +173,24 @@
             btnLimpar.UseVisualStyleBackColor = true;
             btnLimpar.Click += btnLimpar_Click;
             // 
+            // btnAtualizar
+            // 
+            btnAtualizar.FlatStyle = FlatStyle.Flat;
+            btnAtualizar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAtualizar.Location = new Point(283, 276);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(122, 39);
+            btnAtualizar.TabIndex = 10;
+            btnAtualizar.Text = "Atualizar";
+            btnAtualizar.UseVisualStyleBackColor = true;
+            btnAtualizar.Click += btnAtualizar_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(533, 376);
+            Controls.Add(btnAtualizar);
             Controls.Add(btnLimpar);
             Controls.Add(lblId);
             Controls.Add(label5);
@@ -212,5 +226,6 @@
         private Label label5;
         private Label lblId;
         private Button btnLimpar;
+        private Button btnAtualizar;
     }
 }
